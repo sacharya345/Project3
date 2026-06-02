@@ -71,7 +71,7 @@ color:#f4b400 !important;
 
 .hero{
 height:100vh;
-background:url('assets/images/hero.jpg') center center/cover;
+background:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80') center center/cover;
 display:flex;
 align-items:center;
 position:relative;
