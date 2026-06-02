@@ -211,3 +211,39 @@ behavior:"smooth"
 });
 
 });
+
+const toastNotice = document.createElement("div");
+toastNotice.className = "toast-notice";
+document.body.appendChild(toastNotice);
+let toastTimer = null;
+
+function showToast(message) {
+clearTimeout(toastTimer);
+toastNotice.textContent = message;
+toastNotice.classList.add("show-toast");
+toastTimer = setTimeout(() => {
+toastNotice.classList.remove("show-toast");
+}, 3700);
+}
+
+const projectButtons = document.querySelectorAll(".project-btn");
+projectButtons.forEach(button => {
+button.addEventListener("click", event => {
+const card = event.target.closest(".project-card");
+const projectName = card?.dataset.project || "Project";
+showToast(`View details for ${projectName}. Scroll to contact to request a consultation.`);
+
+document.querySelector("#contact").scrollIntoView({
+behavior: "smooth"
+});
+});
+});
+
+const contactForm = document.querySelector("#contact form");
+if (contactForm) {
+contactForm.addEventListener("submit", event => {
+event.preventDefault();
+showToast("Thank you! Your message has been sent. We will reply soon.");
+contactForm.reset();
+});
+}

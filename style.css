@@ -121,10 +121,14 @@ color:black;
 padding:14px 35px;
 font-weight:700;
 border:none;
+border-radius:999px;
+cursor:pointer;
+transition:transform .3s ease, box-shadow .3s ease;
 }
 
 .custom-btn:hover{
 transform:translateY(-5px);
+box-shadow:0 20px 30px rgba(244,180,0,.35);
 }
 
 .about-section,
@@ -154,13 +158,19 @@ background:#111827;
 overflow:hidden;
 border-radius:20px;
 position:relative;
+transition:transform .4s ease, box-shadow .4s ease;
+}
+
+.project-card:hover{
+transform:translateY(-8px);
+box-shadow:0 24px 60px rgba(0,0,0,.35);
 }
 
 .project-card img{
 width:100%;
 height:350px;
 object-fit:cover;
-transition:.6s;
+transition:transform .6s ease;
 }
 
 .project-card:hover img{
@@ -172,9 +182,29 @@ position:absolute;
 bottom:0;
 left:0;
 width:100%;
-padding:20px;
-background:rgba(0,0,0,.8);
+padding:22px 20px 24px;
+background:rgba(0,0,0,.85);
 font-size:22px;
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+
+.project-btn{
+align-self:flex-start;
+background:#f4b400;
+color:#111;
+border:none;
+border-radius:999px;
+padding:10px 20px;
+font-weight:700;
+cursor:pointer;
+transition:transform .25s ease, background .25s ease;
+}
+
+.project-btn:hover{
+transform:translateY(-2px);
+background:#ffe27a;
 }
 
 .blog-card,
@@ -287,6 +317,28 @@ opacity:0;
 visibility:hidden;
 transition:.4s;
 z-index:9999;
+}
+
+.toast-notice{
+position:fixed;
+bottom:30px;
+right:30px;
+background:rgba(16,20,38,.97);
+color:white;
+padding:14px 20px;
+border-radius:999px;
+box-shadow:0 18px 40px rgba(0,0,0,.35);
+opacity:0;
+visibility:hidden;
+transform:translateY(12px);
+transition:opacity .25s ease, transform .25s ease, visibility .25s ease;
+z-index:2000;
+}
+
+.toast-notice.show-toast{
+opacity:1;
+visibility:visible;
+transform:translateY(0);
 }
 
 .show-top-btn{
