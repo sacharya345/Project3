@@ -190,6 +190,35 @@ flex-direction:column;
 gap:14px;
 }
 
+.project-details{
+display:none;
+padding:22px 20px 24px;
+background:rgba(8,12,24,.96);
+border-top:1px solid rgba(255,255,255,.08);
+color:#e8e8e8;
+font-size:0.98rem;
+line-height:1.75;
+}
+
+.project-details.active{
+display:block;
+}
+
+.project-details ul{
+list-style:none;
+padding:0;
+margin:12px 0 0;
+display:grid;
+gap:10px;
+}
+
+.project-details ul li::before{
+content:'•';
+color:#f4b400;
+display:inline-block;
+width:1em;
+}
+
 .project-btn{
 align-self:flex-start;
 background:#f4b400;

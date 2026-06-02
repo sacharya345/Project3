@@ -229,13 +229,24 @@ toastNotice.classList.remove("show-toast");
 const projectButtons = document.querySelectorAll(".project-btn");
 projectButtons.forEach(button => {
 button.addEventListener("click", event => {
-const card = event.target.closest(".project-card");
-const projectName = card?.dataset.project || "Project";
-showToast(`View details for ${projectName}. Scroll to contact to request a consultation.`);
+const clickedCard = event.target.closest(".project-card");
+const clickedDetails = clickedCard?.querySelector(".project-details");
+const projectName = clickedCard?.dataset.project || "Project";
 
-document.querySelector("#contact").scrollIntoView({
-behavior: "smooth"
+projectButtons.forEach(btn => {
+const card = btn.closest(".project-card");
+const details = card?.querySelector(".project-details");
+if (card !== clickedCard) {
+if (details?.classList.contains("active")) {
+details.classList.remove("active");
+btn.textContent = "View Project";
+}
+}
 });
+
+const isActive = clickedDetails?.classList.toggle("active");
+button.textContent = isActive ? "Hide Details" : "View Project";
+showToast(isActive ? `Showing details for ${projectName}.` : `Hiding details for ${projectName}.`);
 });
 });
 
